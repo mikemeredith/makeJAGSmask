@@ -1,17 +1,8 @@
-# NAMESPACE for package 'wiqid'
+# NAMESPACE for package 'makeMaskJAGS'
 
 importFrom(MASS, eqscplot)
-importFrom("graphics", "abline", "hist", "lines", "matplot", "par",
-   "plot", "plot.default", "polygon", "rect", "segments",
-   "text")
-importFrom("stats", "AIC", "acf", "as.dist", "as.formula", "bw.nrd0",
-   "dbinom", "density", "dpois", "median", "model.matrix",
-   "na.omit", "nlm", "optim", "optimize", "pchisq", "plogis",
-   "pnorm", "predict", "qlogis", "qnorm", "rbeta", "rbinom",
-   "rgamma", "rnorm", "runif", "sd", "terms", "var")
-importFrom("utils", "flush.console", "modifyList")
 
+importFrom("graphics", "points", "rect")
 
-export(
-makeMaskJAGS
-)
+export("convertMask", "convertOutput")
+

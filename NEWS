@@ -1,6 +1,8 @@
 TODO
 
-  * lots
+  * Add 'extent' to the output.
+  
+  * Maybe add starting values to the output - but should be different for each chain.
   
 CHANGES in 0.0.1 2016-08-01
 

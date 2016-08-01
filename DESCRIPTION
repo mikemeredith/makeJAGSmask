@@ -3,10 +3,10 @@ Type: Package
 Title: Construct a habitat matrix for use with SECR analysis in JAGS or BUGS
 Version: 0.0.1
 Date: 2016-08-01
-Imports: stats, MASS
+Imports: MASS
 Suggests: secr
 Author: Mike Meredith
 Maintainer: Mike Meredith <mmeredith@wcs.org>
-Description: see read me
+Description: Functions to create habitat masks for spatially explicit capture-recapture (SECR) analysis in BUGS or JAGS. Currently this is done by converting a mask prepared by the \pkg{secr} package.
 License: GPL-3
 NeedsCompilation: no
