@@ -1,0 +1,12 @@
+Package: makeMaskJAGS
+Type: Package
+Title: Construct a habitat matrix for use with SECR analysis in JAGS or BUGS
+Version: 0.0.1
+Date: 2016-08-01
+Imports: stats, MASS
+Suggests: secr
+Author: Mike Meredith
+Maintainer: Mike Meredith <mmeredith@wcs.org>
+Description: see read me
+License: GPL-3
+NeedsCompilation: no
