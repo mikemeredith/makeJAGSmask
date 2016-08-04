@@ -2,11 +2,15 @@
 #   coordinate reference system
 # Output...
 
-convertOutput <- function(x, y, convertMask) {
-
+convertOutput <- function(x, y, JAGSmask) {
+  # Deal with x and y
+  if(is.list(x) && length(x) == 2) {
+    y <- x[[2]]
+    x <- x[[1]]
+  }
   # Get pixel width and original false origin
-  pixWidth <- convertMask$pixelWidth
-  origin <- convertMask$bbox[1, ] - pixWidth
+  pixWidth <- attr(JAGSmask, "pixelWidth")
+  origin <- attr(JAGSmask, "origin")
 
   east <- as.matrix(x) * pixWidth + origin[1]
   north <- as.matrix(y) * pixWidth + origin[2]

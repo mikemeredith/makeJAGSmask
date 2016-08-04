@@ -2,7 +2,9 @@
 
 importFrom(MASS, eqscplot)
 
-importFrom("graphics", "points", "rect")
+importFrom("graphics", "points", "rect", "axis")
 
 export("convertMask", "convertOutput")
 
+S3method("print", "JAGSmask")
+S3method("plot", "JAGSmask")

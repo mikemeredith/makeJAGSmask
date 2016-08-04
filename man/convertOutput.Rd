@@ -6,17 +6,17 @@ Convert JAGS output back to the original coordinates}
 The activity centre locations output from a JAGS run using a habitat mask is in units of pixels. This function converts them to the original coordinate system.
 }
 \usage{
-convertOutput(x, y, convertMask)
+convertOutput(x, y, JAGSmask)
 }
 \arguments{
   \item{x}{
-A matrix or data frame with the MCMC output for x coordinates of the ACs, with a column for each animal and a row for each MCMC iteration.
+A matrix or data frame with the MCMC output for x coordinates of the ACs, with a column for each animal and a row for each MCMC iteration. It can also be a list with 2 elements, the first specifying the x coordinates and the second the y coordinates; in this case argument y is ignored.
 }
   \item{y}{
-A corresponding matrix or data frame with the MCMC output for the y coordinates.
+A corresponding matrix or data frame with the MCMC output for the y coordinates. Ignored if x is a list.
 }
-  \item{convertMask}{
-The output from \code{convertMask} which was used as input to the JAGS run.
+  \item{JAGSmask}{
+The object of class \code{JAGSmask} that was used as input to the JAGS run.
 }
 }
 \value{
@@ -41,10 +41,8 @@ mymask <- convertMask(secrmask, traps, plot=TRUE)
 # The analysis in JAGS is slow, so just look at the output:
 data(JAGSoutput)
 str(JAGSoutput)
-myresult <- convertOutput(
-  x = JAGSoutput$ACx,
-  y = JAGSoutput$ACy,
-  convertMask = mymask)
+myresult <- convertOutput(JAGSoutput, JAGSmask = mymask)
+
 # Plot one animal that was captured and 5 that were not:
 MASS::eqscplot(patch, type='l')
 points(myresult$east[, 1], myresult$north[, 1], col=2)
