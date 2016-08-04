@@ -1,9 +1,18 @@
 TODO
 
-  * Add 'extent' to the output.
-  
   * Maybe add starting values to the output - but should be different for each chain.
-  
+
+CHANGES in 0.0.2 2016-08-04
+
+  * Output from 'convertMask' is now an object of class 'JAGSmask' with print and
+  plot methods. It is a list which now includes 'extent' and 'area'. The bounding box,
+  false origin and pixel width are provided as attributes.
+
+  * Plotting is now done by the 'plot.JAGSmask' method.
+
+  * 'convertOutput' can now accept a list with x and y coordinates as its first
+  argument; the mask argument is now called 'JAGSmask'.
+
 CHANGES in 0.0.1 2016-08-01
 
   * First attempt
