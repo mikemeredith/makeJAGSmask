@@ -24,7 +24,7 @@ If TRUE, the resulting mask and trap  locations will be plotted.
 An object of class \code{JAGSmask}, a list with the following elements:
 \item{habMat }{A 1/0 matrix, habMat[x, y] = 1 if location (x, y) is in good habitat.}
 \item{trapMat }{A 2-column matrix with the x and y coordinates of the traps in the same units as \code{habMat}}
-\item{extent }{A 2x2 matrix giving the extent of \code{habMat} in pixel units.}
+\item{upperLimit }{A length 2 vector giving the upper limit of x and y for \code{habMat} in pixel units (the lower limit for each is always 1).}
 \item{area }{The area of suitable habitat in the original units, typically square metres.}
 
 It will also have the following attributes, which can be used to convert JAGS output back to the original coordinate system:

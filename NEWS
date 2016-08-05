@@ -2,6 +2,12 @@ TODO
 
   * Maybe add starting values to the output - but should be different for each chain.
 
+CHANGES in 0.0.3 2016-08-05
+
+  * In 'JAGSmask' objects, 'extent' replaced with 'upperLimit'.
+
+  * Add function 'randomPoints'.
+
 CHANGES in 0.0.2 2016-08-04
 
   * Output from 'convertMask' is now an object of class 'JAGSmask' with print and

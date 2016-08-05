@@ -28,7 +28,7 @@ convertMask <- function(secrmask, secrtraps, plot=TRUE) {
 
   out <- list(habMat = habMat, 
               trapMat = as.matrix(newtraps), 
-              extent = matrix(c(1, nrows+1, 1, ncols+1), 2, 2),
+              upperLimit = c(x=nrows+1, y=ncols+1),
               area = sum(habMat) * pixWidth^2)
   attr(out, "boundingbox") <- bbox
   attr(out, "origin") <- origin

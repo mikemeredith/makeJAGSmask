@@ -1,10 +1,10 @@
 # NAMESPACE for package 'makeMaskJAGS'
 
 importFrom(MASS, eqscplot)
-
 importFrom("graphics", "points", "rect", "axis")
+importFrom("stats", "runif")
 
-export("convertMask", "convertOutput")
+export("convertMask", "convertOutput", "randomPoints")
 
 S3method("print", "JAGSmask")
 S3method("plot", "JAGSmask")
