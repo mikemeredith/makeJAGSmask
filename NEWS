@@ -1,12 +1,17 @@
 TODO
 
-  * Maybe add starting values to the output - but should be different for each chain.
+  * 'convertOutput' should be able to deal with a single array/matrix/data frame as well
+    as separate x and y objects.
+
+CHANGES in 0.0.4 2016-08-06
+
+  * Added convenience function 'pixelWidth'.
 
 CHANGES in 0.0.3 2016-08-05
 
   * In 'JAGSmask' objects, 'extent' replaced with 'upperLimit'.
 
-  * Add function 'randomPoints'.
+  * Added function 'randomPoints' to generate starting values.
 
 CHANGES in 0.0.2 2016-08-04
 
