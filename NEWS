@@ -1,10 +1,11 @@
 TODO
 
-  * 'convertOutput' should be able to deal with a single array/matrix/data frame as well
-    as separate x and y objects.
 
 CHANGES in 0.0.4 2016-08-06
 
+  * 'convertOutput' now accepts a single array, matrix, data frame or list as input,
+  instead of separate x and y objects.
+    
   * Added convenience function 'pixelWidth'.
 
 CHANGES in 0.0.3 2016-08-05
