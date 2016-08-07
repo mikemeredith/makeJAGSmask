@@ -1,6 +1,5 @@
-\name{makeMaskJAGS-package}
-\alias{makeMaskJAGS}
-\alias{makeMaskJAGS}
+\name{makeJAGSmask-package}
+\alias{makeJAGSmask}
 \docType{package}
 \title{
 Habitat matrices for use with SECR analysis in JAGS or BUGS}
