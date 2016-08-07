@@ -1,4 +1,4 @@
-Package: makeMaskJAGS
+Package: makeJAGSmask
 Type: Package
 Title: Construct a habitat matrix for use with SECR analysis in JAGS or BUGS
 Version: 0.0.4
