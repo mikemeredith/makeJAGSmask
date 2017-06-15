@@ -1,6 +1,10 @@
 TODO
 
 
+CHANGES in 0.0.5 2017-06-15
+
+  * Fixed bug in 'convertMask' which was giving 'subscript out of range' errors.
+
 CHANGES in 0.0.4 2016-08-06
 
   * 'convertOutput' now accepts a single array, matrix, data frame or list as input,

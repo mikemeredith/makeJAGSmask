@@ -15,8 +15,8 @@ convertMask <- function(secrmask, secrtraps, plot=TRUE) {
   origin <- bbox[1, ] - pixWidth
 
   # Get dimensions of the matrix
-  nrows <- (bbox[2, 1] - bbox[1, 1]) / pixWidth
-  ncols <- (bbox[3, 2] - bbox[2, 2]) / pixWidth
+  nrows <- round((bbox[2, 1] - bbox[1, 1]) / pixWidth)
+  ncols <- round((bbox[3, 2] - bbox[2, 2]) / pixWidth)
   habMat <- matrix(0L, nrow=nrows, ncol=ncols)
   # Convert mask x and y to col/row numbers
   dex <- as.matrix(floor(sweep(secrmask, 2, origin) / pixWidth))

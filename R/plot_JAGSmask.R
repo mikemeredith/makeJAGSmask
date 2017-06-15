@@ -9,8 +9,8 @@ plot.JAGSmask <- function(x, colors=c("black", "skyblue", "red"),
   nrows <- nrow(habMat)
   MASS::eqscplot(1,1, xlim=c(1,nrows+1), ylim=c(1,ncols+1), type='n',
     bty='n', xaxt='n', yaxt='n', xlab="Easting", ylab="Northing")
-  axis(1, at=c(1, nrows+1), labels=bbox[1:2, 1])
-  axis(2, at=c(1, ncols+1), labels=bbox[2:3, 2])
+  axis(1, at=c(1, nrows+1), labels=round(bbox[1:2, 1]))
+  axis(2, at=c(1, ncols+1), labels=round(bbox[2:3, 2]))
   rect(1,1, nrows+1, ncols+1, col='grey95')
   # Plot pixel centres, centre is 0.5 units greater than SW corner
   rdex <- row(habMat)
@@ -25,7 +25,7 @@ plot.JAGSmask <- function(x, colors=c("black", "skyblue", "red"),
     for(i in 1:nrow(trapcells))
       ok[i] <- habMat[trapcells[i,1], trapcells[i,2]]
     if(!all(ok == 1)) {
-      cat("The following traps appear to be in bad habitat:", which(!ok), "\n")
+      cat("The following traps appear to be in bad habitat:\n", which(!ok), "\n")
       cat("They are circled in the plot.\n")
       cat("If on the edge, this is probably due to rasterization of the habitat polygon.\n")
     }
