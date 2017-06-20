@@ -30,6 +30,6 @@ plot.JAGSmask <- function(x, colors=c("black", "skyblue", "red"),
       cat("If on the edge, this is probably due to rasterization of the habitat polygon.\n")
     }
     if(!all(ok == 1))
-      points(trapMat[!ok, ], col=colors[3], cex=2, xpd=TRUE)
+      points(x=trapMat[!ok, 1], y=trapMat[!ok, 2], col=colors[3], cex=2, xpd=TRUE)
   }
 }

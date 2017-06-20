@@ -1,5 +1,11 @@
-TODO
 
+CHANGES in 0.0.6 2017-06-20
+
+  * Fixed bug in 'plot.JAGSmask' which was not working correctly with only 1 trap
+  in bad habitat.
+
+  * Added checks to 'randomPoints' function: now warns if a fixed location is in
+  bad habitat.
 
 CHANGES in 0.0.5 2017-06-15
 
@@ -9,7 +15,7 @@ CHANGES in 0.0.4 2016-08-06
 
   * 'convertOutput' now accepts a single array, matrix, data frame or list as input,
   instead of separate x and y objects.
-    
+
   * Added convenience function 'pixelWidth'.
 
 CHANGES in 0.0.3 2016-08-05
