@@ -14,7 +14,9 @@ This look-up procedure is repeated for every animal in the augmented data set an
 
 The JAGS code is written so that truncating the x and y coordinates of the proposed AC produces the indices into the habitat matrix. This matrix has to be configured so that \code{habMat[x, y]} returns 1 if the AC is in suitable habitat, 0 otherwise; the function \code{convertMask} converts a mask produced by the function \code{secr::make.mask} into the matrix needed for JAGS.
 
-AC locations in the MCMC output from JAGS will also be in the units used for the habitat matrix; the function \code{convertOutput} converts these back to the original coordinate system.
+The estimate of \code{sigma} is in units of pixel width. This can be extracted from the mask object with the function \code{pixelWidth}.
+
+AC locations in the MCMC output from JAGS will also be in the units used for the habitat matrix, ie, pixel width, with origin at (1, 1); the function \code{convertOutput} converts these back to the original coordinate system.
 }
 
 \author{

@@ -1,4 +1,9 @@
 
+CHANGES in 0.0.6.9000 2018-01-16
+
+  * Added note to help page that sigma is in pixel units.
+
+
 CHANGES in 0.0.6 2017-06-20
 
   * Fixed bug in 'plot.JAGSmask' which was not working correctly with only 1 trap
