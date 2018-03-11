@@ -1,4 +1,8 @@
 
+CHANGES in 0.0.6.9001 2018-03-11
+
+  * Fixed bug in randomPoints
+
 CHANGES in 0.0.6.9000 2018-01-16
 
   * Added note to help page that sigma is in pixel units.

@@ -24,7 +24,7 @@ randomPoints <- function(n, JAGSmask, fixed) {
   # Insert fixed values, ignoring NAs
   if(!missing(fixed)) {
     fix <- which(!is.na(rowSums(fixed)))
-    fixed0 <- fixed[fix, ]
+    fixed0 <- fixed[fix, , drop=FALSE]
     if(any(fixed0 < 1) ||
         any(fixed0[, 1] > JAGSmask$upperLimit[1]) ||
         any(fixed0[, 2] > JAGSmask$upperLimit[2]))
