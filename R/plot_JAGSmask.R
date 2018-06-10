@@ -1,38 +1,39 @@
 # Function to plot a JAGSmask object
 
-plot.JAGSmask <- function(x, colors=c("black", "skyblue", "red", "green"),
-  points=c(1, 1, 3, 16), verify=TRUE, ...) {
-  habMat <- x$habMat
-  coreMat <- x$coreMat
-  trapMat <- x$trapMat
+plot.JAGSmask <- function(x, colors=c("grey", "white", "yellow"),  verify=TRUE, ...) {
+  if(is.null(x$coreMat)) {
+    toPlot <- x$habMat
+  } else {
+    toPlot <- x$habMat + x$coreMat
+  }
   bbox <- attr(x, "boundingbox")
-  ncols <- ncol(habMat)
-  nrows <- nrow(habMat)
-  MASS::eqscplot(1,1, xlim=c(1,nrows+1), ylim=c(1,ncols+1), type='n',
-    bty='n', xaxt='n', yaxt='n', xlab="Easting", ylab="Northing")
-  axis(1, at=c(1, nrows+1), labels=round(bbox[1:2, 1]))
-  axis(2, at=c(1, ncols+1), labels=round(bbox[2:3, 2]))
-  rect(1,1, nrows+1, ncols+1, col='grey95')
-  # Plot pixel centres, centre is 0.5 units greater than SW corner
-  rdex <- row(habMat) + 0.5
-  cdex <- col(habMat) + 0.5
-  points(x=rdex, y=cdex, pch=points[habMat+1], col=colors[habMat+1])
-  if(!is.null(coreMat))
-    points(x=rdex[coreMat==1], y=cdex[coreMat==1], pch=points[4], col=colors[4])
-  points(trapMat, pch=points[3], col=colors[3], xpd=TRUE)
+  xlabels <- pretty(bbox[1:2, 1], n=5)
+  xpos <- (xlabels - bbox[1, 1]) / diff(bbox[1:2, 1]) * ncol(x$habMat) + 1
+  ylabels <- pretty(bbox[2:3, 2], n=5)
+  ypos <- (ylabels - bbox[2, 2]) / diff(bbox[2:3, 2]) * nrow(x$habMat) + 1
+  
+  image(x=1:x$upperLimit[1],
+        y=1:x$upperLimit[2],
+        z=toPlot,
+        ann=FALSE, axes=FALSE, col=colors, ...)
+  title(xlab="Easting", ylab="Nothing") 
+  axis(1, at=xpos, labels = xlabels)
+  axis(2, at=ypos, labels = ylabels)
+  box()
+  points(x$trapMat, pch=3, col='red', xpd=TRUE)
 
   if(verify) {
     # Check locations of traps
-    trapcells <- floor(trapMat)
+    trapcells <- floor(x$trapMat)
     ok <- numeric(nrow(trapcells))
     for(i in 1:nrow(trapcells))
-      ok[i] <- habMat[trapcells[i,1], trapcells[i,2]]
+      ok[i] <- x$habMat[trapcells[i,1], trapcells[i,2]]
     if(!all(ok == 1)) {
       cat("The following traps appear to be in bad habitat:\n", which(!ok), "\n")
       cat("They are circled in the plot.\n")
       cat("If on the edge, this is probably due to rasterization of the habitat polygon.\n")
     }
     if(!all(ok == 1))
-      points(x=trapMat[!ok, 1], y=trapMat[!ok, 2], col=colors[3], cex=2, xpd=TRUE)
+      points(x=x$trapMat[!ok, 1], y=x$trapMat[!ok, 2], col='red', cex=2, xpd=TRUE)
   }
 }

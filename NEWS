@@ -2,6 +2,10 @@ TODO
 
   * include links to my blog in help pages.
 
+CHANGES in 0.0.6.9004 2018-06-10
+
+  * 'plot.JAGSmask' now uses 'image' instead of 'plot,default'.
+  
 CHANGES in 0.0.6.9003 2018-06-10
 
   * New function 'addCore' adds a core area matrix to a 'JAGSmask' object.

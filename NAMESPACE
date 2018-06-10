@@ -1,7 +1,7 @@
 # NAMESPACE for package 'makeMaskJAGS'
 
 importFrom(MASS, eqscplot)
-importFrom("graphics", "points", "rect", "axis")
+importFrom("graphics", "points", "rect", "axis", "box", "image", "title")
 importFrom("stats", "runif")
 importFrom("abind", "abind")
 importFrom("grDevices", "chull")
