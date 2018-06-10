@@ -1,8 +1,9 @@
 # Function to plot a JAGSmask object
 
-plot.JAGSmask <- function(x, colors=c("black", "skyblue", "red"),
-  points=c(1, 1, 3), verify=TRUE, ...) {
+plot.JAGSmask <- function(x, colors=c("black", "skyblue", "red", "green"),
+  points=c(1, 1, 3, 16), verify=TRUE, ...) {
   habMat <- x$habMat
+  coreMat <- x$coreMat
   trapMat <- x$trapMat
   bbox <- attr(x, "boundingbox")
   ncols <- ncol(habMat)
@@ -13,11 +14,13 @@ plot.JAGSmask <- function(x, colors=c("black", "skyblue", "red"),
   axis(2, at=c(1, ncols+1), labels=round(bbox[2:3, 2]))
   rect(1,1, nrows+1, ncols+1, col='grey95')
   # Plot pixel centres, centre is 0.5 units greater than SW corner
-  rdex <- row(habMat)
-  cdex <- col(habMat)
-  points(x=rdex+0.5, y=cdex+0.5, pch=points[habMat+1], col=colors[habMat+1])
+  rdex <- row(habMat) + 0.5
+  cdex <- col(habMat) + 0.5
+  points(x=rdex, y=cdex, pch=points[habMat+1], col=colors[habMat+1])
+  if(!is.null(coreMat))
+    points(x=rdex[coreMat==1], y=cdex[coreMat==1], pch=points[4], col=colors[4])
   points(trapMat, pch=points[3], col=colors[3], xpd=TRUE)
-  
+
   if(verify) {
     # Check locations of traps
     trapcells <- floor(trapMat)

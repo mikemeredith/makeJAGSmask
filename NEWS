@@ -2,7 +2,9 @@ TODO
 
   * include links to my blog in help pages.
 
-  * add function to extract a mask for a core area.
+CHANGES in 0.0.6.9003 2018-06-10
+
+  * New function 'addCore' adds a core area matrix to a 'JAGSmask' object.
 
 CHANGES in 0.0.6.9002 2018-06-10
 

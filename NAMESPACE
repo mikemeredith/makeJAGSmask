@@ -4,8 +4,9 @@ importFrom(MASS, eqscplot)
 importFrom("graphics", "points", "rect", "axis")
 importFrom("stats", "runif")
 importFrom("abind", "abind")
+importFrom("grDevices", "chull")
 
-export("convertMask", "convertOutput", "randomPoints", "pixelWidth")
+export("convertMask", "convertOutput", "randomPoints", "pixelWidth", "addCore")
 
 S3method("print", "JAGSmask")
 S3method("plot", "JAGSmask")

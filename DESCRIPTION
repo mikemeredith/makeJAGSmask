@@ -1,10 +1,10 @@
 Package: makeJAGSmask
 Type: Package
 Title: Construct a habitat matrix for use with SECR analysis in JAGS or BUGS
-Version: 0.0.6.9002
+Version: 0.0.6.9003
 Date: 2018-06-10
 Imports: MASS, abind
-Suggests: secr
+Suggests: secr, sp, rgeos
 Author: Mike Meredith
 Maintainer: Mike Meredith <mmeredith@wcs.org>
 Description: Functions to create habitat masks for spatially explicit capture-recapture (SECR) analysis in BUGS or JAGS. Currently this is done by converting a mask prepared by the \pkg{secr} package.

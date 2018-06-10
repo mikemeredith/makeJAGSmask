@@ -17,12 +17,12 @@ An object of class \code{secr::mask} as produced by the function \code{secr::mak
 An object of class \code{secr::traps} as produced by the function \code{secr::make.traps}.
 }
   \item{plot}{
-If TRUE, the resulting mask and trap  locations will be plotted.
+If TRUE, the resulting mask and trap locations will be plotted.
 }
 }
 \value{
 An object of class \code{JAGSmask}, a list with the following elements:
-\item{habMat }{A 1/0 matrix, habMat[x, y] = 1 if location (x, y) is in good habitat.}
+\item{habMat }{A 1/0 matrix, \code{habMat[x, y] = 1} if location (x, y) is in good habitat.}
 \item{trapMat }{A 2-column matrix with the x and y coordinates of the traps in the same units as \code{habMat}}
 \item{upperLimit }{A length 2 vector giving the upper limit of x and y for \code{habMat} in pixel units (the lower limit for each is always 1).}
 \item{pixelWidth }{The width and height of the cells in \code{habMat} in the original units (usually metres).}
