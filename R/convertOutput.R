@@ -17,7 +17,7 @@ convertOutput <- function(ACs, JAGSmask) {
     stop("invalid input")
   }
   # Get pixel width and original false origin
-  pixWidth <- attr(JAGSmask, "pixelWidth")
+  pixWidth <- pixelWidth(JAGSmask)
   origin <- attr(JAGSmask, "origin")
 
   x1 <- x * pixWidth + origin[1]

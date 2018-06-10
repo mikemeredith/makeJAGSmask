@@ -29,13 +29,11 @@ Mike Meredith
 }
 \examples{
 # Generate the mask used for the analysis:
-data(patch)
-data(traps)
+data(exampleData)
 secrmask <- secr::make.mask(traps, spacing=2000, type='polygon', poly=patch)
 mymask <- convertMask(secrmask, traps, plot=TRUE)
 
 # The analysis in JAGS is slow, so just look at the output:
-data(JAGSoutput)
 str(JAGSoutput)
 myresult <- convertOutput(JAGSoutput, JAGSmask = mymask)
 

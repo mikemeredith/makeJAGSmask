@@ -1,7 +1,10 @@
 # Extract pixel width from a JAGSmask object.
 
 pixelWidth <- function(JAGSmask) {
-  return(attr(JAGSmask, "pixelWidth"))
+  pixWidth <- JAGSmask$pixelWidth
+  if(is.null(pixWidth))
+    pixWidth <- attr(JAGSmask, "pixelWidth")
+  return(pixWidth)
 }
 
 

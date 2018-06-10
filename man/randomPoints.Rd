@@ -29,8 +29,7 @@ Mike Meredith
 }
 \examples{
 # Create a JAGSmask object:
-data(patch)
-data(traps)
+data(exampleData)
 secrmask <- secr::make.mask(traps, spacing=2000, type='polygon',
               poly=patch, cell.overlap="any")
 mymask <- convertMask(secrmask, traps, plot=TRUE)

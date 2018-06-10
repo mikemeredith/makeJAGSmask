@@ -1,3 +1,15 @@
+TODO
+
+  * include links to my blog in help pages.
+
+  * add function to extract a mask for a core area.
+
+CHANGES in 0.0.6.9002 2018-06-10
+
+  * 'pixelWidth' now included in the 'JAGSmask' output list; the attribute retained
+  for the moment.
+
+  * Rolled up 'patch', 'traps' and 'JAGSoutput' into a single data item, 'exampleData'.
 
 CHANGES in 0.0.6.9001 2018-03-11
 
@@ -6,7 +18,6 @@ CHANGES in 0.0.6.9001 2018-03-11
 CHANGES in 0.0.6.9000 2018-01-16
 
   * Added note to help page that sigma is in pixel units.
-
 
 CHANGES in 0.0.6 2017-06-20
 

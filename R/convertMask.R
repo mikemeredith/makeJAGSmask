@@ -1,6 +1,6 @@
 # Convert secr mask and traps objects for use with JAGS
 # Output: list with habitat matrix, new traps coords as a matrix,
-#   extent and area;
+#   extent, pixel width, and area in original units;
 #   attributes: original bounding box as a matrix, false origin, and pixel width.
 
 convertMask <- function(secrmask, secrtraps, plot=TRUE) {
@@ -29,6 +29,7 @@ convertMask <- function(secrmask, secrtraps, plot=TRUE) {
   out <- list(habMat = habMat, 
               trapMat = as.matrix(newtraps), 
               upperLimit = c(x=nrows+1, y=ncols+1),
+              pixelWidth = pixWidth,
               area = sum(habMat) * pixWidth^2)
   attr(out, "boundingbox") <- bbox
   attr(out, "origin") <- origin
