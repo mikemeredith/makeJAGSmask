@@ -8,9 +8,9 @@ plot.JAGSmask <- function(x, colors=c("grey", "white", "yellow"),  verify=TRUE, 
   }
   bbox <- attr(x, "boundingbox")
   xlabels <- pretty(bbox[1:2, 1], n=5)
-  xpos <- (xlabels - bbox[1, 1]) / diff(bbox[1:2, 1]) * ncol(x$habMat) + 1
+  xpos <- (xlabels - bbox[1, 1]) / diff(bbox[1:2, 1]) * nrow(x$habMat) + 1
   ylabels <- pretty(bbox[2:3, 2], n=5)
-  ypos <- (ylabels - bbox[2, 2]) / diff(bbox[2:3, 2]) * nrow(x$habMat) + 1
+  ypos <- (ylabels - bbox[2, 2]) / diff(bbox[2:3, 2]) * ncol(x$habMat) + 1
   
   image(x=1:x$upperLimit[1],
         y=1:x$upperLimit[2],

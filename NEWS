@@ -2,10 +2,16 @@ TODO
 
   * include links to my blog in help pages.
 
+  * do 'testthat' tests.
+
+CHANGES in 0.0.6.9005 2018-06-11
+
+  * Bug fix - axes were incorrect in 'plot.JAGSmask'
+
 CHANGES in 0.0.6.9004 2018-06-10
 
-  * 'plot.JAGSmask' now uses 'image' instead of 'plot,default'.
-  
+  * 'plot.JAGSmask' now uses 'image' instead of 'plot.default'.
+
 CHANGES in 0.0.6.9003 2018-06-10
 
   * New function 'addCore' adds a core area matrix to a 'JAGSmask' object.
