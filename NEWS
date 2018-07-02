@@ -1,8 +1,14 @@
 TODO
 
-  * include links to my blog in help pages.
+  * do more 'testthat' tests and sanity checks.
 
-  * do 'testthat' tests.
+CHANGES in 0.0.6.9006 2018-07-01
+
+  * Some 'testthat' files done.
+
+  * 'convertOutput' recognises 'x' and 'y' a names in input.
+
+  * some sanity checks in 'convertMask' and 'convertOutput'
 
 CHANGES in 0.0.6.9005 2018-06-11
 

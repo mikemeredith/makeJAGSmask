@@ -5,6 +5,11 @@
 
 convertMask <- function(secrmask, secrtraps, plot=TRUE) {
 
+  # Sanity checks
+  if(!inherits(secrmask, "mask"))
+    stop("'", deparse(substitute(secrmask)), "' is not a valid 'mask' object.")
+  if(!inherits(secrtraps, "traps"))
+    stop("'", deparse(substitute(secrtraps)), "' is not a valid 'traps' object.")
   # Get point spacing, which will be our pixelWidth
   pixWidth <- attr(secrmask, "spacing")
   # Do we need to deal with masks without spacing?
