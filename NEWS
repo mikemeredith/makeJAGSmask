@@ -2,6 +2,10 @@ TODO
 
   * do more 'testthat' tests and sanity checks.
 
+CHANGES in 0.0.6.9007 2019-05-05
+
+  * New function 'plotACs' to plot activity centres.
+
 CHANGES in 0.0.6.9006 2018-07-01
 
   * Some 'testthat' files done.

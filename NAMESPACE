@@ -1,12 +1,14 @@
 # NAMESPACE for package 'makeMaskJAGS'
 
-importFrom(MASS, eqscplot)
-importFrom("graphics", "points", "rect", "axis", "box", "image", "title")
+importFrom("MASS", "eqscplot")
+importFrom("graphics", "plot", "points", "rect", "axis", "box", "image", "title")
 importFrom("stats", "runif")
 importFrom("abind", "abind")
-importFrom("grDevices", "chull")
+importFrom("grDevices", "chull", "adjustcolor", "palette")
+importFrom("plotrix", "boxed.labels")
 
-export("convertMask", "convertOutput", "randomPoints", "pixelWidth", "addCore")
+export("convertMask", "convertOutput", "randomPoints", "pixelWidth",
+  "addCore", "plotACs")
 
 S3method("print", "JAGSmask")
 S3method("plot", "JAGSmask")

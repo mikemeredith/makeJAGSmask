@@ -1,9 +1,9 @@
 Package: makeJAGSmask
 Type: Package
-Title: Construct a habitat matrix for use with SECR analysis in JAGS or BUGS
-Version: 0.0.6.9006
-Date: 2018-07-01
-Imports: MASS, abind
+Title: Construct a Habitat Matrix for Use with SECR Analysis in JAGS or BUGS
+Version: 0.0.6.9007
+Date: 2019-05-05
+Imports: MASS, abind, plotrix
 Suggests: secr, sp, rgeos
 Author: Mike Meredith
 Maintainer: Mike Meredith <mmeredith@wcs.org>
