@@ -15,16 +15,16 @@ plotACs(which=NA, ACs, traps, Y, hab, howMany=3000, show.labels=TRUE)
 The numbers of the ACs to plot; if NA, all captured animals' ACs will be plotted.
 }
   \item{ACs}{
-A 3D array of MCMC output, iterations x animals x 2, with the x and y coordinates of the activity centres. Typically this would be output from \code{\link{convertOutput}}.
+A 3D array of MCMC output, iterations x animals x 2, with the x and y coordinates of the activity centres. Typically this would be output from \code{\link{convertOutput}}. ACs for phantom animals should be converted to NA. 
 }
   \item{traps}{
-A 2-column matrix or data frame with the coordinates of the traps.
+An optional 2-column matrix or data frame with the coordinates of the traps.
 }
   \item{Y}{
-A detection history matrix, animals x traps, with Y[i,j] = 0 if animal i was not caught in trap j. Row names are taken to be animal identifiers.
+An optional detection history matrix, animals x traps, with Y[i,j] > 0 if animal i was caught in trap j, 0 otherwise. Row names are taken to be animal identifiers.
 }
   \item{hab}{
-A SpatialPolygons* object describing the extent of the available habitat.
+Optional; either a SpatialPolygons* object or a 2-column matrix or data frame with the coordinates of the vertices of a polygon describing the extent of the available habitat.
 }
  \item{howMany}{
 The number of points to plot for each posterior distribution.
