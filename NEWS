@@ -2,6 +2,10 @@ TODO
 
   * do more 'testthat' tests and sanity checks.
 
+CHANGES in 0.0.6.9009 2019-05-07
+
+  * Fixed "ncap not found" bug in 'plotACs'.
+
 CHANGES in 0.0.6.9008 2019-05-06
 
   * Tweaks to 'plotACs'.

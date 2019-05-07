@@ -61,7 +61,7 @@ plotACs <- function(
   for(i in which) {
     col <- colors[colno]
     points(ACs[, i, ], cex=0.1, col=adjustcolor(col, 0.3))
-    if(i <= ncap && !is.null(captLocList))
+    if(!is.null(captLocList) && i <= ncap)
       points(captLocList[[i]], pch=21, col='black', bg=col, cex=1.2)
     colno <- colno+1
     if(colno > length(colors))
