@@ -7,9 +7,10 @@ importFrom("stats", "runif")
 importFrom("abind", "abind")
 importFrom("grDevices", "chull", "adjustcolor", "palette")
 importFrom("plotrix", "boxed.labels")
+importFrom("raster", "extent", "xres", "yres", "values", "values<-")
 
-export("convertMask", "convertOutput", "randomPoints", "pixelWidth",
-  "addCore", "plotACs", "getACinCore")
+export("convertMask", "convertRaster", "convertOutput", "addCore",
+   "randomPoints", "pixelWidth", "plotACs", "getACinCore")
 
 S3method("print", "JAGSmask")
 S3method("plot", "JAGSmask")

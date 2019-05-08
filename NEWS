@@ -4,6 +4,10 @@ TODO
 
   * Lots more sanity checks for new functions.
 
+CHANGES in 0.0.6.9011 2019-05-08
+
+  * Added function 'convertRaster'.
+
 CHANGES in 0.0.6.9010 2019-05-08
 
   * Added function 'getACinCore'.
