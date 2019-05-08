@@ -43,9 +43,17 @@ Mike Meredith
 \code{\link[secr]{make.mask}}
 }
 \examples{
-data(exampleData)
+require(sp)
+data(simSCR)
+plot(simSCR$patchSP)
+points(simSCR$traps, pch=3, col='red')
+
 # Create the 'secr' mask:
-secrmask <- secr::make.mask(traps, spacing=2000, type='polygon', poly=patch)
-# Convert to 'habMat' format:
-mymask <- convertMask(secrmask, traps, plot=TRUE)
+require("secr")
+secrmask <- make.mask(simSCR$traps, spacing=1000,
+  type='polygon', poly=simSCR$patchSP)
+plot(secrmask)
+
+# Convert to 'JAGSmask' format:
+mymask <- convertMask(secrmask, simSCR$traps, plot=TRUE)
 }

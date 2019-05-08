@@ -9,7 +9,7 @@ importFrom("grDevices", "chull", "adjustcolor", "palette")
 importFrom("plotrix", "boxed.labels")
 
 export("convertMask", "convertOutput", "randomPoints", "pixelWidth",
-  "addCore", "plotACs")
+  "addCore", "plotACs", "getACinCore")
 
 S3method("print", "JAGSmask")
 S3method("plot", "JAGSmask")

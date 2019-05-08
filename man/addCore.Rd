@@ -43,40 +43,20 @@ Mike Meredith
 \code{\link{convertMask}}
 }
 \examples{
-data(exampleData)
-secrmask <- secr::make.mask(traps, spacing=2000, type="polygon", poly=patch,
-  cell.overlap="any")
-mymask <- convertMask(secrmask, traps, plot=TRUE)
+data(simSCR)
+JAGSmask <- simSCR$JAGSmask
+plot(JAGSmask)
 
-# add a core extending 2000m beyond the perimeter of the trap array:
-newmask <- addCore(mymask, type="perimeter", buffer=2000)
-
-# Part of the reserve is in Arkadia state and we want the population
+# Part of the study area is in Arkadia state and we want the population
 #   inside Arkadia, so we use Arkadia as the "core":
 Arkadia <- cbind(x=c(140000, 140000, 200000, 200000),
   y=c(50000,805000, 805000, 50000))
-Arkadiamask <- addCore(mymask, type="poly", poly=Arkadia)
+Arkadiamask <- addCore(JAGSmask, type="poly", poly=Arkadia)
 
 # How many animals in the core area?
-# ACs are on the pixel scale, so use 'floor' to get indices into
-#    the coreMat matrix
-index <- floor(JAGSoutput)
-# Which ACs are in the core area?
-inCore <- array(NA, dim(JAGSoutput)[1:2])
-for(i in 1:ncol(inCore))
-  inCore[, i] <- Arkadiamask$coreMat[index[, i, ]]
-# 1 = AC is inside core, 0 = outside, NA = non-existent
-
-# Look at individual animals:
-( existInCore <- colSums(inCore, na.rm=TRUE)/nrow(inCore) )
-# Animal #1 (almost certainly), #2 and #4 have ACs inside Arkadia,
-#   #3 and #5 are outside. 
-# Estimated number of ACs in the core:
-sum(existInCore)
-
 # Get a posterior distribution for number of ACs in the state:
-Ncore <- rowSums(inCore, na.rm=TRUE)
-mean(Ncore)
-plot(table(Ncore)/nrow(inCore),
-  ylab="Probability", xlab="Number of animals with ACs in Arkadia state")
+Ncore <- getACinCore(simSCR$sims.list$S, simSCR$sims.list$w, Arkadiamask)
+plot(table(Ncore))
+mean(Ncore)       # posterior mean
+quantile(Ncore, probs=c(0.025, 0.975))  # 95% credible interval
 }

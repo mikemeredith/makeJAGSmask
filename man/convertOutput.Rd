@@ -25,21 +25,26 @@ Mike Meredith
 }
 
 \seealso{
-\code{\link{convertMask}}
+\code{\link{convertMask}}, \code{\link{plotACs}}.
 }
 \examples{
-# Generate the mask used for the analysis:
-data(exampleData)
-secrmask <- secr::make.mask(traps, spacing=2000, type='polygon', poly=patch)
-mymask <- convertMask(secrmask, traps, plot=TRUE)
+data(simSCR)
+str(simSCR, 1)
+str(simSCR$sims.list)
 
-# The analysis in JAGS is slow, so just look at the output:
-str(JAGSoutput)
-myresult <- convertOutput(JAGSoutput, JAGSmask = mymask)
+# The output in simSCR$sims.list$S has MCMC chains for the coordinates
+#  of activity centres on the pixel scale. Convert to the original units:
+AC <- convertOutput(simSCR$sims.list$S, simSCR$JAGSmask)
+str(AC)
 
-# Plot one animal that was captured and 5 that were not:
-MASS::eqscplot(patch, type='l')
-points(myresult[, 1, ], col=2)
-points(myresult[, 6:10, 1], myresult[, 6:10, 2], col='grey')
-points(traps, pch=3, col='red')
+# Plot the posterior distribution for 1 animal:
+require(sp)
+plot(simSCR$patchSP)
+points(simSCR$traps, pch=3, col='red')
+points(AC[, 1, ], pch=16, cex=0.2, col='blue')
+
+# To plot the ACs for animals not captured, we need to remove the iterations
+#  where the animal was not available for capture (ie, was a "phantom").
+AC[simSCR$sims.list$w == 0] <- NA
+points(AC[, 6, ], pch=16, cex=0.2, col='darkgreen')
 }

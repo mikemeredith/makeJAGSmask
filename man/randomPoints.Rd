@@ -28,19 +28,19 @@ An n x 2 matrix with the coordinates of points in suitable habitat on the scale 
 Mike Meredith
 }
 \examples{
-# Create a JAGSmask object:
-data(exampleData)
-secrmask <- secr::make.mask(traps, spacing=2000, type='polygon',
-              poly=patch, cell.overlap="any")
-mymask <- convertMask(secrmask, traps, plot=TRUE)
+data(simSCR)
+plot(simSCR$JAGSmask)
 
 # Create a few locations in good habitat:
-( locs <- randomPoints(3, mymask) )
+( locs <- randomPoints(3, simSCR$JAGSmask) )
+points(locs, pch=16)
+
 # Treat these as fixed locations in a set of 10:
-randomPoints(10, mymask, fixed=locs)
+( rand <- randomPoints(10, simSCR$JAGSmask, fixed=locs) )
+points(rand, pch=16, col='blue')
 # Change one of the 'locs' to bad habitat
-locs[2, ] <- c(32, 30)
-randomPoints(10, mymask, fixed=locs) # Gives a warning.
+locs[2, ] <- c(2, 24)
+randomPoints(10, simSCR$JAGSmask, fixed=locs) # Gives a warning.
 }
 
 

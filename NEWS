@@ -2,6 +2,14 @@ TODO
 
   * do more 'testthat' tests and sanity checks.
 
+  * Lots more sanity checks for new functions.
+
+CHANGES in 0.0.6.9010 2019-05-08
+
+  * Added function 'getACinCore'.
+
+  * Replaced 'exampleData' with 'simSCR', revised most of the examples in help pages.
+
 CHANGES in 0.0.6.9009 2019-05-07
 
   * Fixed "ncap not found" bug in 'plotACs'.
