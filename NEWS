@@ -2,7 +2,13 @@ TODO
 
   * do more 'testthat' tests and sanity checks.
 
-  * Lots more sanity checks for new functions.
+  * More sanity checks for new functions.
+
+CHANGES in 0.0.6.9012 2019-05-09
+
+  * Sanity checks to several functions.
+
+  * 'plot.JAGSmask' now displays covariate values.
 
 CHANGES in 0.0.6.9011 2019-05-08
 

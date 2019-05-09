@@ -1,4 +1,4 @@
-# Convert secr mask and traps objects for use with JAGS
+# Convert a habitat raster and trap coordinates for use with JAGS
 # Output: list with habitat matrix, new traps coords as a matrix,
 #   extent, pixel width, and area in original units;
 #   attributes: original bounding box as a matrix, false origin, and pixel width.
@@ -7,10 +7,10 @@ convertRaster <- function(raster, traps, plot=TRUE) {
 
   # Sanity checks
   if(!inherits(raster, "Raster"))
-    stop("'", deparse(substitute(secrmask)), "' is not a valid 'raster' object.")
+    stop("'", deparse(substitute(raster)), "' is not a valid 'raster' object.")
   raster <- raster::trim(raster)
   if(!inherits(traps, "data.frame"))
-    stop("'", deparse(substitute(secrtraps)), "' is not a valid 'data.frame' object.")
+    stop("'", deparse(substitute(traps)), "' is not a valid 'data.frame' object.")
   # Get point spacing, which will be our pixelWidth
   pixWidth <- xres(raster)
   stopifnot(pixWidth == yres(raster))

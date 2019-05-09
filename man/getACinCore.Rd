@@ -4,7 +4,7 @@
 Extract an MCMC chain for number of Activity Centres in the core area
 }
 \description{
-Often we are interested in the number of activity centres in a core area which is smaller than the full extent of the available habitat. This function produces an MCMC chain for the posteror distribution of the number of activity centres in the core.
+Often we are interested in the number of activity centres in a core area which is smaller than the full extent of the available habitat. This function produces an MCMC chain for the posterior distribution of the number of activity centres in the core.
 }
 \usage{
 getACinCore(S, w, JAGSmask)
@@ -15,7 +15,7 @@ getACinCore(S, w, JAGSmask)
 A 3D array of MCMC output, iterations x animals x 2, with the x and y coordinates of the activity centres on the pixels scale. Typically this would be output from JAGS.
 }
   \item{w}{
-A 1/0 matrix of MCMC output, iterations x animals, with 1 if the animal is in the study area and available for capture, 0 otherwise. Typically this would be output from JAGS.
+A 1/0 matrix of MCMC output, iterations x animals, with 1 if the animal is in the study area and available for capture, 0 otherwise. Typically this would be output from JAGS. May be missing if (1) data augmentation was not used or (2) if relevant entries in S have been replaced with NA.
 }
   \item{JAGSmask}{
 An object of class JAGSmask which includes information on the core, see \code{\link{addCore}}.
