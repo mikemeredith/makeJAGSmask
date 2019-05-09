@@ -4,6 +4,10 @@ TODO
 
   * More sanity checks for new functions.
 
+CHANGES in 0.0.6.9013 2019-05-09
+
+  * Fixed testthat tests for new data set, added tests for 'convertRaster'.
+
 CHANGES in 0.0.6.9012 2019-05-09
 
   * Sanity checks to several functions.

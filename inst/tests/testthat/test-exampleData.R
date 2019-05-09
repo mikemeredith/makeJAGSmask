@@ -2,17 +2,19 @@
 
 require(makeJAGSmask)
 
-context("exampleData")
+context("simSCR")
 # =============================
 
-test_that("exampleData is unchanged",  {
-  data(exampleData)
-  expect_s3_class(patch, "data.frame")
-  expect_equivalent(round(colMeans(patch)), c(157571, 787443))
-  expect_s3_class(traps, c("traps", "data.frame"))
-  expect_equivalent(round(colMeans(traps)), c(159426, 788927))
-  expect_is(JAGSoutput, "array")
-  expect_equivalent(dim(JAGSoutput), c(1350, 10, 2))
-  expect_equivalent(round(mean(JAGSoutput, na.rm=TRUE), 4), 12.5767)
-  expect(sum(is.na(JAGSoutput)), 12086)
+test_that("simSCR is unchanged",  {
+  data(simSCR)
+  expect_s3_class(simSCR$patchDF, "data.frame")
+  expect_s4_class(simSCR$patchSP, "SpatialPolygons")
+  expect_s4_class(simSCR$patchR, "RasterLayer")
+  expect_equivalent(round(colMeans(simSCR$patchDF)), c(157571, 787443))
+  expect_s3_class(simSCR$traps, c("traps", "data.frame"))
+  expect_equivalent(round(colMeans(simSCR$traps)), c(156239, 789891))
+  expect_is(simSCR$sims.list$S, "array")
+  expect_equivalent(dim(simSCR$sims.list$S), c(1500, 30, 2))
+  expect_equivalent(round(mean(simSCR$sims.list$S), 4), 32.1058)
+  expect_equivalent(sum(is.na(simSCR$sims.list$S)), 0)
 } )
