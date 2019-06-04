@@ -13,7 +13,7 @@ convertRaster <- function(raster, traps, plot=TRUE) {
     stop("'", deparse(substitute(traps)), "' is not a valid 'data.frame' object.")
   # Get point spacing, which will be our pixelWidth
   pixWidth <- xres(raster)
-  stopifnot(pixWidth == yres(raster))
+  stopifnot(all.equal(pixWidth, yres(raster)))
 
   bbox <- matrix(extent(raster)[c(1,2,2,1,3,3,4,4)], 4, 2)
   origin <- bbox[1, ] - pixWidth
