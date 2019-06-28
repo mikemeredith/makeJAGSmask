@@ -46,6 +46,7 @@ data(simSCR)
 plot(simSCR$patchR)
 points(simSCR$traps, pch=3, col='red')
 
-# Create the 'JAGSmask' object from the :
+# Create the 'JAGSmask' object from the raster:
 mymask <- with(simSCR, convertRaster(patchR, traps, plot=TRUE))
+str(mymask)
 }

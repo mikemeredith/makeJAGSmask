@@ -1,77 +1,19 @@
-TODO
-
-  * do more 'testthat' tests and sanity checks.
-
-  * More sanity checks for new functions.
-
-CHANGES in 0.0.6.9014 2019-06-04
-
-  * Fixed bug in 'convertRaster'.
-
-CHANGES in 0.0.6.9013 2019-05-09
-
-  * Fixed testthat tests for new data set, added tests for 'convertRaster'.
-
-CHANGES in 0.0.6.9012 2019-05-09
-
-  * Sanity checks to several functions.
-
-  * 'plot.JAGSmask' now displays covariate values.
-
-CHANGES in 0.0.6.9011 2019-05-08
+CHANGES in 0.1.0 2019-06-28
 
   * Added function 'convertRaster'.
 
-CHANGES in 0.0.6.9010 2019-05-08
-
-  * Added function 'getACinCore'.
-
   * Replaced 'exampleData' with 'simSCR', revised most of the examples in help pages.
-
-CHANGES in 0.0.6.9009 2019-05-07
-
-  * Fixed "ncap not found" bug in 'plotACs'.
-
-CHANGES in 0.0.6.9008 2019-05-06
-
-  * Tweaks to 'plotACs'.
-
-CHANGES in 0.0.6.9007 2019-05-05
 
   * New function 'plotACs' to plot activity centres.
 
-CHANGES in 0.0.6.9006 2018-07-01
-
-  * Some 'testthat' files done.
-
-  * 'convertOutput' recognises 'x' and 'y' a names in input.
-
-  * some sanity checks in 'convertMask' and 'convertOutput'
-
-CHANGES in 0.0.6.9005 2018-06-11
-
-  * Bug fix - axes were incorrect in 'plot.JAGSmask'
-
-CHANGES in 0.0.6.9004 2018-06-10
+  * 'convertOutput' recognises 'x' and 'y' as names in input.
 
   * 'plot.JAGSmask' now uses 'image' instead of 'plot.default'.
 
-CHANGES in 0.0.6.9003 2018-06-10
-
   * New function 'addCore' adds a core area matrix to a 'JAGSmask' object.
-
-CHANGES in 0.0.6.9002 2018-06-10
 
   * 'pixelWidth' now included in the 'JAGSmask' output list; the attribute retained
   for the moment.
-
-  * Rolled up 'patch', 'traps' and 'JAGSoutput' into a single data item, 'exampleData'.
-
-CHANGES in 0.0.6.9001 2018-03-11
-
-  * Fixed bug in randomPoints
-
-CHANGES in 0.0.6.9000 2018-01-16
 
   * Added note to help page that sigma is in pixel units.
 
