@@ -1,14 +1,28 @@
 # Function to plot a JAGSmask object
 
 plot.JAGSmask <- function(x, col, verify=TRUE, ...) {
-  if(!is.null(x$covMat)) {
+
+  asp <- x$upperLimit[2] / x$upperLimit[1]
+  if(names(x)[1] == "habMat") {  # no covariate matrices
+    if(missing(col))
+      col <- c("grey", "white", "yellow")
+    if(is.null(x$coreMat)) {
+      toPlot <- x$habMat
+    } else {
+      toPlot <- x$habMat + x$coreMat
+    }
+    image(x=1:x$upperLimit[1],
+          y=1:x$upperLimit[2],
+          z=toPlot,
+          ann=FALSE, axes=FALSE, col=col, asp=asp, ...)
+  } else {
     if(missing(col))
       col <- terrain.colors(100)
     image(x=1:x$upperLimit[1],
           y=1:x$upperLimit[2],
-          z=x$covMat,
-          ann=FALSE, axes=FALSE, col='black')#, ...)
-    tmp1 <- x$covMat
+          z=x[[1]],
+          ann=FALSE, axes=FALSE, col='black', asp=asp)#, ...)
+    tmp1 <- x[[1]]
     tmp1[x$habMat==0] <- NA
     image(x=1:x$upperLimit[1],
           y=1:x$upperLimit[2],
@@ -22,31 +36,20 @@ plot.JAGSmask <- function(x, col, verify=TRUE, ...) {
             y=1:x$upperLimit[2],
             z=tmp2, col=adjustcolor('grey', 0.7), add=TRUE)
     }
-  } else {
-    if(missing(col))
-      col <- c("grey", "white", "yellow")
-    if(is.null(x$coreMat)) {
-      toPlot <- x$habMat
-    } else {
-      toPlot <- x$habMat + x$coreMat
-    }
-    image(x=1:x$upperLimit[1],
-          y=1:x$upperLimit[2],
-          z=toPlot,
-          ann=FALSE, axes=FALSE, col=col, ...)
   }
+
   bbox <- attr(x, "boundingbox")
   xlabels <- pretty(bbox[1:2, 1], n=5)
   xpos <- (xlabels - bbox[1, 1]) / diff(bbox[1:2, 1]) * nrow(x$habMat) + 1
   ylabels <- pretty(bbox[2:3, 2], n=5)
   ypos <- (ylabels - bbox[2, 2]) / diff(bbox[2:3, 2]) * ncol(x$habMat) + 1
-  
-  title(xlab="Easting", ylab="Northing") 
+
+  title(xlab="Easting", ylab="Northing")
   axis(1, at=xpos, labels = xlabels)
   axis(2, at=ypos, labels = ylabels)
   box()
   points(x$trapMat, pch=3, col='red', xpd=TRUE)
-  
+
   if(verify) {
     # Check locations of traps
     trapcells <- floor(x$trapMat)

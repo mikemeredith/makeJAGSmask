@@ -47,11 +47,10 @@ data(simSCR)
 JAGSmask <- simSCR$JAGSmask
 plot(JAGSmask)
 
-# Part of the study area is in Arkadia state and we want the population
+# Part of the study area is in Arkadia municipality and we want the population
 #   inside Arkadia, so we use Arkadia as the "core":
-Arkadia <- cbind(x=c(140000, 140000, 200000, 200000),
-  y=c(50000,805000, 805000, 50000))
-Arkadiamask <- addCore(JAGSmask, type="poly", poly=Arkadia)
+Arkadiamask <- addCore(JAGSmask, type="poly", poly=simSCR$Arkadia)
+plot(Arkadiamask) # core area yellow, remainder of habitat white
 
 # How many animals in the core area?
 # Get a posterior distribution for number of ACs in the state:

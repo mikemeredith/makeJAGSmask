@@ -1,3 +1,11 @@
+CHANGES in 0.1.1 2019-07-02
+
+  * Function 'convertRaster' now accepts RasterStack objects as well as RasterLayer.
+
+  * A RasterStack object, 'patchRS', added to 'simSCR' data set.
+
+  * Added 'trueACs' and boundary of 'Arkadia' to 'simSCR' data set.
+
 CHANGES in 0.1.0 2019-06-28
 
   * Added function 'convertRaster'.

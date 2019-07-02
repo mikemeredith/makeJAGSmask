@@ -35,14 +35,13 @@ Mike Meredith
 data(simSCR)
 plot(simSCR$JAGSmask)  # habitat yellow, non-habitat grey.
 # add a core
-Arkadia <- cbind(x=c(140000, 140000, 200000, 200000),
-  y=c(50000,805000, 805000, 50000))
-Amask <- addCore(simSCR$JAGSmask, type="poly", poly=Arkadia)
+Amask <- addCore(simSCR$JAGSmask, type="poly", poly=simSCR$Arkadia)
 plot(Amask)  # core yellow, non-core habitat white.
 
-# Create a mask from a raster
+# Create a mask from a raster stack
 require(raster)
-Rmask <- with(simSCR, convertRaster(patchR, traps, plot=TRUE)) # non-habitat black
-ARmask <- addCore(Rmask, type="poly", poly=Arkadia) # non-core grey
+RSmask <- with(simSCR, convertRaster(patchRS, traps, plot=TRUE)) # non-habitat black
+  # only the first covariate layer is plotted
+ARSmask <- addCore(RSmask, type="poly", poly=simSCR$Arkadia) # non-core grey
 }
 \keyword{hplot}

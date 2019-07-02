@@ -1,7 +1,7 @@
 # Function to print a JAGSmask object
 
 print.JAGSmask <- function(x, ...) {
-  cat("An x of class 'JAGSmask'\n")
+  cat("An object of class 'JAGSmask'\n")
   size <- dim(x$habMat)
   ntraps <- nrow(x$trapMat)
   cat("The habitat mask has", size[1], "rows and", size[2], "columns.\n")
