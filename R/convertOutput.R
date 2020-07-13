@@ -14,7 +14,7 @@ pmatch_xy <- function(names) {
 convertOutput <- function(ACs, JAGSmask) {
   if(!inherits(JAGSmask, "JAGSmask"))
     stop("'", deparse(substitute(JAGSmask)), "' is not a valid 'JAGSmask' object.")
-  classOut <- class(ACs)
+  classOut <- class(ACs)[1]
   if(is.list(ACs) && length(ACs) == 2) {
     xy <- pmatch_xy(names(ACs))
     x <- ACs[[xy[1]]]

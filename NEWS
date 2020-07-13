@@ -1,3 +1,11 @@
+CHANGES in 0.1.1.9001 2019-07-13
+
+  * Function 'plotACs' gains arguments 'rad', 'link' and 'colors'.
+
+  * Fixed bug in 'convertOutput' when input is a matrix.
+
+  * Fixed bug in 'convertRaster', which was trimming too much.
+
 CHANGES in 0.1.1 2019-07-02
 
   * Function 'convertRaster' now accepts RasterStack objects as well as RasterLayer.

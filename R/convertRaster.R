@@ -8,7 +8,7 @@ convertRaster <- function(raster, traps, plot=TRUE) {
   # Sanity checks
   if(!inherits(raster, "Raster"))
     stop("'", deparse(substitute(raster)), "' is not a valid 'raster' object.")
-  raster <- raster::trim(raster)
+  # raster <- raster::trim(raster)
   if(!inherits(traps, "data.frame"))
     stop("'", deparse(substitute(traps)), "' is not a valid 'data.frame' object.")
   # Get point spacing, which will be our pixelWidth
