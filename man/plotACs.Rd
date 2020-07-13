@@ -7,7 +7,8 @@ Plot activity centres from Bayesian SCR output
 Plot activity centres from Bayesian SCR output
 }
 \usage{
-plotACs(which=NA, ACs, traps, Y, hab, howMany=3000, show.labels=TRUE)
+plotACs(which=NA, ACs, traps, Y, hab, howMany=3000, show.labels=TRUE,
+    rad=50, link=TRUE, colors)
 }
 
 \arguments{
@@ -31,6 +32,15 @@ The number of points to plot for each posterior distribution.
 }
  \item{show.labels}{
 If TRUE, animal identifiers are added to the plot.
+}
+ \item{rad}{
+The jitter used to distance the points showing capture locations from the traps.
+}
+ \item{link}{
+If TRUE, capture locations for each animal are linked by a line.
+}
+ \item{colors}{
+A vector of colours to use to plot the different animals; default is to use \code{palette()}.
 }
 }
 

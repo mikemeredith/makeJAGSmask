@@ -8,7 +8,10 @@ plotACs <- function(
     Y,            # animals x traps matrix with capture histories; rownames assumed to be animal IDs
     hab,          # spatialPolygons object with the extent of the habitat
     howMany=3000, # number of points to plot for each animal
-    show.labels=TRUE # whether to label plot with animal IDs
+    show.labels=TRUE, # whether to label plot with animal IDs
+    rad=50,       # amount of jitter to add to capture locations
+    link=TRUE,    # if TRUE, link capture locations with dotted line
+    colors        # vector of colors to use for plotting
   )  {
 
   # Reduce number of iterations
@@ -37,7 +40,10 @@ plotACs <- function(
       captLocList <- vector('list', ncap)
       for(i in 1:ncap) {
         captTraps <- which(Y[i, ] > 0) # Which traps caught the animal
-        captLocList[[i]] <- traps[captTraps, , drop=FALSE] # Locations of the traps
+        tmp <- traps[captTraps, , drop=FALSE] # Locations of the traps
+        jitangle <- runif(nrow(tmp), -pi, pi)
+        jit <- cbind(rad*sin(jitangle), rad*cos(jitangle))
+        captLocList[[i]] <- tmp + jit
       }
     }
   }
@@ -56,13 +62,17 @@ plotACs <- function(
   }
   if(!missing(traps))
     points(traps, pch=3, col='red')
-  colors <- palette()[-1]
+  if(missing(colors))
+    colors <- palette()[-1]
   colno <- 1
   for(i in which) {
     col <- colors[colno]
     points(ACs[, i, ], cex=0.1, col=adjustcolor(col, 0.3))
-    if(!is.null(captLocList) && i <= ncap)
+    if(!is.null(captLocList) && i <= ncap){
       points(captLocList[[i]], pch=21, col='black', bg=col, cex=1.2)
+      if(link && nrow(captLocList[[i]]) > 1)
+        lines(captLocList[[i]], col=col)
+    }
     colno <- colno+1
     if(colno > length(colors))
     colno <- 1
