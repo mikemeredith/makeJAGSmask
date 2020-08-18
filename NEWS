@@ -1,3 +1,7 @@
+CHANGES in 0.1.1.9003 2019-08-18
+
+  * 'plotACs' now returns a data frame with the AC locations.
+
 CHANGES in 0.1.1.9002 2019-08-18
 
   * Better description of 'plotACs' in the help file.

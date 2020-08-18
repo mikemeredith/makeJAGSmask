@@ -47,9 +47,11 @@ plotACs <- function(
       }
     }
   }
-  if(any(is.na(which)))
-    which <- 1:M
+  # if(any(is.na(which)))
+    # which <- 1:M
+
   # do the plot
+  # -----------
   MASS::eqscplot(x, y, type='n', xlim=range(ACs[, , 1], na.rm=TRUE),
     ylim=range(ACs[, , 2], na.rm=TRUE),
     ann=FALSE, axes=FALSE)
@@ -79,6 +81,14 @@ plotACs <- function(
   }
   if(show.labels)
     plotrix::boxed.labels(x[which], y[which], labels=animalIDs[which])
-  invisible(0)
+
+  # data frame to return
+  # --------------------
+  niter <- dim(ACs)[1]
+  tmp <- matrix(ACs[, which, ], ncol=2)
+  IDs <- make.unique(animalIDs[which])
+  out <- data.frame(ID=factor(rep(IDs, each=niter)), x=tmp[,1], y=tmp[,2])
+  out <- out[complete.cases(out), ]
+  return(invisible(out))
 }
 

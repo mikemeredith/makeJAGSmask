@@ -49,7 +49,7 @@ A vector of colours to use to plot the different animals; default is to use \cod
 }
 
 \value{
-Returns nothing.
+Returns invisibly the ACs plotted as a data frame with 3 columns, the animal ID in the first column and the x and y coordinates in the second and third.
 }
 \author{
 Mike Meredith

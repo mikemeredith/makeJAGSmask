@@ -3,7 +3,7 @@
 importFrom("MASS", "eqscplot")
 importFrom("graphics", "plot", "points", "lines", "rect",
   "axis", "box", "image", "title")
-importFrom("stats", "runif")
+importFrom("stats", "runif", "complete.cases")
 importFrom("abind", "abind")
 importFrom("grDevices", "chull", "adjustcolor", "palette", "terrain.colors")
 importFrom("plotrix", "boxed.labels")
