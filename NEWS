@@ -1,3 +1,7 @@
+CHANGES in 0.1.1.9002 2019-08-18
+
+  * Better description of 'plotACs' in the help file.
+
 CHANGES in 0.1.1.9001 2019-07-13
 
   * Function 'plotACs' gains arguments 'rad', 'link' and 'colors'.

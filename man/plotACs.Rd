@@ -4,7 +4,11 @@
 Plot activity centres from Bayesian SCR output
 }
 \description{
-Plot activity centres from Bayesian SCR output
+The function produces a plot of a large number of draws (default 3000) from the posterior distributions of the x and y coordinates of the activity centre (AC) for each animal.
+
+The cloud of points represents what we know about the AC location for each animal. If we knew the AC location with certainty, there would only be one point (ie, the 3000 points would all be on top of each other). The most probable location for the AC is in the densest part of the cloud, and the extent of the cloud indicates the uncertainty about its location.
+
+Note that the size of the cloud bears no relation to the extent of the animal's home range.
 }
 \usage{
 plotACs(which=NA, ACs, traps, Y, hab, howMany=3000, show.labels=TRUE,
