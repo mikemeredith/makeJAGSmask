@@ -24,7 +24,7 @@ devtools::load_all("makeJAGSmask")
 # ==========================
 unlink(list.files(pattern="Rplots.pdf", recursive=TRUE))
 system("R CMD build makeJAGSmask")  # Produces the .tar.gz
-pkg <- "makeJAGSmask_0.1.1.9003.tar.gz"  # <-- fix version number here
+pkg <- "makeJAGSmask_0.1.1.9004.tar.gz"  # <-- fix version number here
 
 # Pick one to check:
 ## on desktop

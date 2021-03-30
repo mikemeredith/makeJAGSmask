@@ -2,7 +2,7 @@
 
 plot.JAGSmask <- function(x, col, verify=TRUE, ...) {
 
-  asp <- x$upperLimit[2] / x$upperLimit[1]
+  # asp <- x$upperLimit[2] / x$upperLimit[1]
   if(names(x)[1] == "habMat") {  # no covariate matrices
     if(missing(col))
       col <- c("grey", "white", "yellow")
@@ -14,14 +14,16 @@ plot.JAGSmask <- function(x, col, verify=TRUE, ...) {
     image(x=1:x$upperLimit[1],
           y=1:x$upperLimit[2],
           z=toPlot,
-          ann=FALSE, axes=FALSE, col=col, asp=asp, ...)
+          # ann=FALSE, axes=FALSE, col=col, asp=asp, ...)
+          ann=FALSE, axes=FALSE, col=col, asp=1, ...)
   } else {
     if(missing(col))
       col <- terrain.colors(100)
     image(x=1:x$upperLimit[1],
           y=1:x$upperLimit[2],
           z=x[[1]],
-          ann=FALSE, axes=FALSE, col='black', asp=asp)#, ...)
+          # ann=FALSE, axes=FALSE, col='black', asp=asp)#, ...)
+          ann=FALSE, axes=FALSE, col='black', asp=1)#, ...)
     tmp1 <- x[[1]]
     tmp1[x$habMat==0] <- NA
     image(x=1:x$upperLimit[1],
