@@ -1,3 +1,7 @@
+CHANGES in 0.1.1.9005 2021-05-12
+
+  * Changed 'simSCR$patchR' and 'simSCR$pathRS$edge' to have higher resolution for distance from boundary.
+
 CHANGES in 0.1.1.9004 2021-03-30
 
   * Fixed bug in 'plot.JAGSmask' aspect ratio (thanks to Ugyen Penjor for the report).

@@ -24,7 +24,7 @@ devtools::load_all("makeJAGSmask")
 # ==========================
 unlink(list.files(pattern="Rplots.pdf", recursive=TRUE))
 system("R CMD build makeJAGSmask")  # Produces the .tar.gz
-pkg <- "makeJAGSmask_0.1.1.9004.tar.gz"  # <-- fix version number here
+pkg <- "makeJAGSmask_0.1.1.9005.tar.gz"  # <-- fix version number here
 
 # Pick one to check:
 ## on desktop
@@ -44,3 +44,8 @@ test_package("makeJAGSmask", reporter=ProgressReporter)
 # Try it out:
 library(makeJAGSmask)
 ?makeJAGSmask
+
+data(simSCR)
+simSCR$patchR
+simSCR$patchRS
+
